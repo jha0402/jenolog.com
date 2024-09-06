@@ -43,12 +43,16 @@ const ThemeSwitch = () => {
     <div ref={menubarRef} className="mr-5">
       <Menu as="div" className="relative mt-1 inline-block text-left">
         <MenuButton aria-label={t('theme')}>
-          <DarkModeSwitch
-            checked={darkModeChecked}
-            onChange={(isChecked) => setDarkModeChecked(isChecked)}
-            onClick={() => setMenuOpen(!menuOpen)}
-            size={24}
-          />
+          {theme === 'system' ? (
+            <Monitor className="h-6 w-6" onClick={() => setMenuOpen(!menuOpen)}></Monitor>
+          ) : (
+            <DarkModeSwitch
+              checked={darkModeChecked}
+              onChange={(isChecked) => setDarkModeChecked(isChecked)}
+              onClick={() => setMenuOpen(!menuOpen)}
+              size={24}
+            />
+          )}
         </MenuButton>
         <Transition
           show={menuOpen}
