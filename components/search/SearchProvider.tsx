@@ -31,7 +31,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
       name: name,
       keywords: '',
       shortcut: [],
-      section: locale === fallbackLng ? 'Authors' : 'Auteurs',
+      section: locale === fallbackLng ? '저자' : 'Authors',
       perform: () => router.push(`/${locale}/about/${slug}`),
       icon: (
         <i>
@@ -49,10 +49,10 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
       : [
           {
             id: 'about',
-            name: locale === fallbackLng ? 'About' : 'À propos',
+            name: locale === fallbackLng ? '소개' : 'About',
             keywords: '',
             shortcut: ['a'],
-            section: locale === fallbackLng ? 'Navigate' : 'Naviguer',
+            section: locale === fallbackLng ? '찾기' : 'Navigate',
             perform: () => router.push(`/${locale}/about`),
             icon: (
               <i>
@@ -63,7 +63,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
         ]),
   ]
   /* issue when using regular translations, this is a workaround to show how to implement section titles */
-  const navigationSection = locale === fallbackLng ? 'Navigate' : 'Naviguer'
+  const navigationSection = locale === fallbackLng ? '찾기' : 'Navigate'
   return (
     <KBarSearchProvider
       kbarConfig={{
@@ -72,7 +72,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
         defaultActions: [
           {
             id: 'home',
-            name: locale === fallbackLng ? 'Home' : 'Accueil',
+            name: locale === fallbackLng ? '홈' : 'Home',
             keywords: '',
             shortcut: ['h'],
             section: navigationSection,
@@ -85,7 +85,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
           },
           {
             id: 'blog',
-            name: locale === fallbackLng ? 'Blog' : 'Blog',
+            name: locale === fallbackLng ? '블로그' : 'Blog',
             keywords: '',
             shortcut: ['b'],
             section: navigationSection,
@@ -98,7 +98,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
           },
           {
             id: 'tags',
-            name: locale === fallbackLng ? 'Tags' : 'Tags',
+            name: locale === fallbackLng ? '태그' : 'Tags',
             keywords: '',
             shortcut: ['t'],
             section: navigationSection,
@@ -111,7 +111,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
           },
           {
             id: 'projects',
-            name: locale === fallbackLng ? 'Projects' : 'Projets',
+            name: locale === fallbackLng ? '프로젝트' : 'Projects',
             keywords: '',
             shortcut: ['p'],
             section: navigationSection,
