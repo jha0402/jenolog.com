@@ -118,15 +118,16 @@ export default async function PostLayout({
                 </div>
               )}
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
-              <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
+              {/* 블로그 글 공유, 댓글 fade out */}
+              {/* <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(path)} rel="nofollow">
                   {t('twitter')}
                 </Link>
                 {` • `}
                 <Link href={editUrl(filePath)}>{t('github')}</Link>
-              </div>
-              <Share title={title} slug={slug} />
-              <div
+              </div> */}
+              {/* <Share title={title} slug={slug} /> */}
+              {/* <div
                 className="mt-10 pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
                 id="comment"
               >
@@ -134,7 +135,7 @@ export default async function PostLayout({
                 {siteMetadata.comments && siteMetadata.iscomments === true && (
                   <Comments slug={slug} />
                 )}
-              </div>
+              </div> */}
             </div>
             <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">

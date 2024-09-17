@@ -54,8 +54,8 @@ const Header = () => {
                   <div
                     className={`hidden font-medium ${
                       isSelected
-                        ? 'text-heading-500'
-                        : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-100'
+                        ? 'text-heading-900 dark:text-heading-100'
+                        : 'text-gray-500 hover:text-gray-800 dark:hover:text-gray-300'
                     } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
                   >
                     <span className="relative z-10">{t(`${link.title.toLowerCase()}`)}</span>
