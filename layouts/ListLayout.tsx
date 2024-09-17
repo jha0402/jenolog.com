@@ -89,7 +89,9 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
             }`}
           >
             {' '}
-            {postTag} ({tagCountMap[postTag]})
+            {postTag}
+            {/* 태그 카운트 fade-out */}
+            {/* {postTag} ({tagCountMap[postTag]}) */}
           </h3>
         </button>
       </li>

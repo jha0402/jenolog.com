@@ -42,11 +42,12 @@ export default async function HomeLayout({ posts, params: { locale } }: HomeProp
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter?.provider && (
+      {/* 뉴스레터 fade-out */}
+      {/* {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
-      )}
+      )} */}
     </>
   )
 }

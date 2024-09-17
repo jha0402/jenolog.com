@@ -1,10 +1,10 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js i18n Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js, i18n and Tailwind.css',
-  language: 'en',
+  title: 'Jenolog',
+  author: '안정현',
+  headerTitle: 'Jenolog',
+  description: `Jeong Hyun An's blog and portfolio site`,
+  language: 'ko',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog-i18n.vercel.app',
   siteRepo: 'https://github.com/PxlSyl/tailwind-nextjs-starter-blog-i18n',
@@ -20,8 +20,8 @@ const siteMetadata = {
   linkedin: 'https://www.linkedin.com',
   threads: 'https://www.threads.net',
   instagram: 'https://www.instagram.com',
-  locale: 'en',
-  multiauthors: true,
+  locale: 'ko',
+  multiauthors: false,
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
