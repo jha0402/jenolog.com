@@ -9,5 +9,5 @@ export const maintitle: Metadata = {
 
 export const maindescription: Metadata = {
   en: `Jeong Hyun An's tech blog and portfolio site`,
-  fr: `안정현의 기술 블로그 및 포트폴리오 사이트`,
+  ko: `안정현의 기술 블로그 및 포트폴리오 사이트`,
 }
