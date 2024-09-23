@@ -37,9 +37,9 @@ export default function Page({ params: { locale } }: TagsProps) {
             <div key={tag} className="mb-2 mr-5 mt-2">
               <Tag text={tag} />
               {/* 태그 수 fade-out */}
-              {/* <span className="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300">
+              <span className="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300">
                 {`(${tagCounts[tag]})`}
-              </span> */}
+              </span>
             </div>
           ))}
         </div>
