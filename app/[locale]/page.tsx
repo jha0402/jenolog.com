@@ -3,6 +3,8 @@ import { allBlogs } from 'contentlayer/generated'
 import FeaturedLayout from '@/layouts/FeaturedLayout'
 import HomeLayout from '@/layouts/HomeLayout'
 import { LocaleTypes } from './i18n/settings'
+import HeroLayout from '@/layouts/home/HeroLayout'
+import Hero from '@/components/home/Hero'
 
 type HomeProps = {
   params: { locale: LocaleTypes }
@@ -16,6 +18,8 @@ export default async function Page({ params: { locale } }: HomeProps) {
 
   return (
     <>
+      {/* <HeroLayout /> */}
+      <Hero />
       {hasFeaturedPosts && <FeaturedLayout posts={hasFeaturedPosts} params={{ locale }} />}
       <HomeLayout posts={filteredPosts} params={{ locale }} />
     </>
