@@ -48,7 +48,7 @@ const Hero = () => {
             />
             <ButtonLink href="/blog">{t('firstbutton')}</ButtonLink>
           </div>
-          <ButtonLink href="/about">{t('secondbutton')}</ButtonLink>
+          <ButtonLink href="/about/jeonghyunan">{t('secondbutton')}</ButtonLink>
         </div>
         <div data-fade="6" className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8">
           <UnstyledLink
