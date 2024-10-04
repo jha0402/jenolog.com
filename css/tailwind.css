@@ -9,6 +9,10 @@
   @apply mx-auto w-11/12;
 }
 
+.min-h-hero {
+  @apply min-h-[calc(100vh-82px)];
+}
+
 .right-2 {
   right: 0.5rem;
 }

@@ -1,0 +1,10 @@
+{
+  "greeting": "Hi!",
+  "secondline": "You can call me",
+  "name": "John",
+  "description": "I'm a software developer working mainly with React and Typescript. Currently I work on SEO and frontend devops.",
+  "firstbutton": "Read the blog",
+  "secondbutton": "Learn more about me",
+  "resume": "Resume",
+  "github": "Jeong Hyun An"
+}

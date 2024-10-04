@@ -6,21 +6,26 @@ import Accent from './Accent'
 import ButtonLink from './ButtonLink'
 import UnstyledLink from './UnstyledLink'
 
-import { IoNewspaperSharp } from 'react-icons/io5'
+import { IoArrowDownOutline, IoNewspaperSharp } from 'react-icons/io5'
 import { SiGithub } from 'react-icons/si'
+import { useParams } from 'next/navigation'
+import { LocaleTypes } from '@/app/[locale]/i18n/settings'
+import { useTranslation } from '@/app/[locale]/i18n/client'
 
 const Hero = () => {
+  const locale = useParams()?.locale as LocaleTypes
+  const { t } = useTranslation(locale, 'hero')
   // TODO:
   // const isLoaded = useLoaded()
 
   return (
-    <section className="fade-in-start w-full py-12 md:py-24 lg:py-32 xl:py-48">
+    <section className="fade-in-start min-h-hero w-full py-12 md:py-24 lg:py-32 xl:py-48">
       <article className="layout font-extrabold">
         <h2 className="text-2xl md:text-4xl 2xl:text-5xl" data-fade="1">
-          Hi!
+          {t('greeting')}
         </h2>
         <h1 className="mt-1 text-3xl md:text-5xl 2xl:text-6xl" data-fade="2">
-          You can call me <Accent>John</Accent>
+          {t('secondline')} <Accent>{t('name')}</Accent> {t('namesubfix') ? t('namesubfix') : ''}
         </h1>
         <p
           className={clsx(
@@ -29,8 +34,7 @@ const Hero = () => {
           )}
           data-fade="3"
         >
-          I'm a software developer working mainly with React and Typescript. Currently I work on SEO
-          and frontend devops.
+          {t('description')}
         </p>
         <div data-fade="5" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
           <div className="group relative">
@@ -42,9 +46,9 @@ const Hero = () => {
                 'opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200'
               )}
             />
-            <ButtonLink href="/blog">Read the blog</ButtonLink>
+            <ButtonLink href="/blog">{t('firstbutton')}</ButtonLink>
           </div>
-          <ButtonLink href="/about">Learn more about me</ButtonLink>
+          <ButtonLink href="/about">{t('secondbutton')}</ButtonLink>
         </div>
         <div data-fade="6" className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8">
           <UnstyledLink
@@ -57,7 +61,7 @@ const Hero = () => {
             )}
           >
             <IoNewspaperSharp className="shrink-0" />
-            <span>Resume</span>
+            <span>{t('resume')}</span>
           </UnstyledLink>
           <UnstyledLink
             href="https://github.com/jha0402"
@@ -69,20 +73,20 @@ const Hero = () => {
             )}
           >
             <SiGithub className="shrink-0" />
-            <span>Jeong Hyun An</span>
+            <span>{t('github')}</span>
           </UnstyledLink>
         </div>
       </article>
-      {/* <UnstyledLink
-            href='#featured-posts'
-            className={clsx(
-              'absolute bottom-2 left-1/2 -translate-x-1/2 md:bottom-10',
-              'cursor-pointer rounded-md transition-colors',
-              'hover:text-primary-300 focus-visible:text-primary-300'
-            )}
-          >
-            <IoArrowDownOutline className='h-8 w-8 animate-bounce md:h-10 md:w-10' />
-          </UnstyledLink> */}
+      <UnstyledLink
+        href="#featured-posts"
+        className={clsx(
+          'absolute bottom-2 left-1/2 -translate-x-1/2 md:bottom-10',
+          'cursor-pointer rounded-md transition-colors',
+          'hover:text-primary-300 focus-visible:text-primary-300'
+        )}
+      >
+        <IoArrowDownOutline className="h-8 w-8 animate-bounce md:h-10 md:w-10" />
+      </UnstyledLink>
     </section>
   )
 }

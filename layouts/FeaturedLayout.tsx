@@ -1,5 +1,6 @@
 import { createTranslation } from 'app/[locale]/i18n/server'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
+
 import PostList from './home/PostList'
 import LayoutHeader from './home/LayoutHeader'
 
@@ -25,10 +26,10 @@ export default async function FeaturedLayout({ posts, params: { locale } }: Home
   const { t } = await createTranslation(locale, 'home')
   return (
     <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <section id="featured-posts" className="divide-y divide-gray-200 dark:divide-gray-700">
         <LayoutHeader title={t('featured')} />
         <PostList posts={posts} locale={locale} t={t} maxDisplay={MAX_DISPLAY} />
-      </div>
+      </section>
     </>
   )
 }
