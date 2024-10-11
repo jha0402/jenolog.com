@@ -31,7 +31,7 @@ const projectsData: ProjectsData = {
 
   ko: [
     {
-      title: 'Un moteur de recherche',
+      title: '기술 브로그 및 포트폴리오',
       description: `Et si vous pouviez rechercher n'importe quelle information dans le monde ? Pages Web, images, vidéos
         et plus. Google propose de nombreuses fonctionnalités pour vous aider à trouver exactement ce que vous cherchez.`,
       imgSrc: '/static/images/google.png',
