@@ -1,8 +1,8 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: '제노로그',
+  title: 'Jenolog',
   author: '안정현',
-  headerTitle: '제노로그',
+  headerTitle: 'Jenolog',
   description: `안정현의 기술 블로그 및 포트폴리오`,
   language: 'ko',
   theme: 'dark', // system, dark or light
