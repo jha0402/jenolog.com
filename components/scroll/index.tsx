@@ -48,7 +48,8 @@ const ScrollTopAndComment = () => {
             <SearchIcon className="h-5 w-5" />
           </div>
         </SearchButtonWrapper>
-        {siteMetadata.comments?.provider && (
+        {/* {siteMetadata.comments?.provider && (
+        // 스크롤 시 comment 기능 fade-out
           <button
             aria-label={t('scrollcomment')}
             onClick={handleScrollToComment}
@@ -56,7 +57,7 @@ const ScrollTopAndComment = () => {
           >
             <CommentsIcon className="h-5 w-5" />
           </button>
-        )}
+        )} */}
         <button
           aria-label={t('scrolltop')}
           onClick={handleScrollTop}
