@@ -11,8 +11,9 @@ type BlogPageProps = {
 }
 
 export async function generateMetadata({ params: { locale } }: BlogPageProps): Promise<Metadata> {
+  const { t } = await createTranslation(locale, 'common')
   return genPageMetadata({
-    title: 'Blog',
+    title: t('blog'),
     params: { locale: locale },
   })
 }

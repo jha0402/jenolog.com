@@ -23,7 +23,7 @@ export async function generateMetadata({
   const { t } = await createTranslation(locale, 'about')
 
   return genPageMetadata({
-    title: `${t('about')} ${author.name}`,
+    title: `${t('about')}`,
     params: { locale: locale },
   })
 }

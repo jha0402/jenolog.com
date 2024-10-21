@@ -12,7 +12,7 @@ type TagsProps = {
 export async function generateMetadata({ params: { locale } }: TagsProps): Promise<Metadata> {
   const { t } = await createTranslation(locale, 'SEO')
   return genPageMetadata({
-    title: 'Tags',
+    title: t('tag'),
     description: t('tags'),
     params: { locale: locale },
   })
