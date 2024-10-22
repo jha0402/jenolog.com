@@ -5,7 +5,6 @@ import type { MDXComponents } from 'mdx/types'
 import Image from './Image'
 import CustomLink from './Link'
 import TableWrapper from './TableWrapper'
-import Audioplayer from './Audioplayer'
 import WebsiteEmbed from './WebsiteEmbed'
 
 export const components: MDXComponents = {
@@ -15,6 +14,5 @@ export const components: MDXComponents = {
   pre: Pre,
   table: TableWrapper,
   BlogNewsletterForm,
-  Audioplayer,
   WebsiteEmbed,
 }
