@@ -11,11 +11,11 @@ interface ThemeContextProps {
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined)
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<string>('system')
+  const [theme, setTheme] = useState<string>('dark')
   const [mounted, setMounted] = useState<boolean>(false)
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'system'
+    const savedTheme = localStorage.getItem('theme') || 'dark'
     setTheme(savedTheme)
     setMounted(true)
   }, [])

@@ -81,7 +81,7 @@ export default function RootLayout({
     <html
       lang={locale}
       dir={dir(locale)}
-      className={`${space_grotesk.variable} scroll-smooth`}
+      className={`${space_grotesk.variable} dark scroll-smooth`}
       suppressHydrationWarning
     >
       <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
