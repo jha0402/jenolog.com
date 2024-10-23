@@ -52,7 +52,7 @@ const computedFields: ComputedFields = {
     type: 'string',
     resolve: (doc) => {
       // Split the flattenedPath by '/' and take the last part
-      const pathParts = doc._raw.flattenedPath.split('/');
+      const pathParts = doc._raw.flattenedPath.split('/')
       return pathParts.slice(2).join('/')
     },
   },
@@ -65,7 +65,7 @@ const computedFields: ComputedFields = {
     resolve: (doc) => doc._raw.sourceFilePath,
   },
   toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
-};
+}
 
 /**
  * Count the occurrences of all tags across blog posts and write to json file
@@ -154,7 +154,7 @@ export const Blog = defineDocumentType(() => ({
         dateModified: doc.lastmod || doc.date,
         description: doc.summary,
         image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
-        url: `${siteMetadata.siteUrl}/${doc.language}/blog/${doc.slug}`,
+        url: `${siteMetadata.siteUrl}/${doc.language}/blog/${doc._raw.flattenedPath.replace(/blog\/[a-z]{2}\//, '')}`,
       }),
     },
   },
@@ -167,7 +167,7 @@ export const Authors = defineDocumentType(() => ({
   fields: {
     name: { type: 'string', required: true },
     language: { type: 'string', required: true },
-    default: {type: 'boolean'},
+    default: { type: 'boolean' },
     avatar: { type: 'string' },
     occupation: { type: 'string' },
     company: { type: 'string' },
