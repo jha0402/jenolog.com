@@ -35,11 +35,12 @@ const Hero = () => {
         <article className="layout font-extrabold">
           <h2 className="text-2xl md:text-4xl 2xl:text-5xl">{t('greeting')}</h2>
           <h1 className="mt-1 text-3xl md:text-5xl 2xl:text-6xl">
-            {t('secondline')} <Accent>{t('name')}</Accent> {t('namesubfix') ? t('namesubfix') : ''}
+            {t('secondline')} <Accent>{t('name')}</Accent>
+            {locale === 'ko' ? t('namesubfix') : ''}
           </h1>
           <p
             className={clsx(
-              'mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6',
+              'mt-4 max-w-4xl text-gray-700 md:mt-6 dark:text-gray-200',
               'md:text-lg 2xl:text-xl'
             )}
           >
