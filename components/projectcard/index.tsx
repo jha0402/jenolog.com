@@ -5,6 +5,7 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 
 import { motion } from 'framer-motion'
 import { useTranslation } from 'app/[locale]/i18n/client'
+import CloudinaryImg from '../images/CloudinaryImg'
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: -25 },
@@ -40,23 +41,23 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
               href={href.startsWith('http') ? href : `/${locale}${href}`}
               aria-label={`${t('linkto')}${title}`}
             >
-              <Image
-                alt={title}
-                title={title}
-                src={imgSrc}
-                className="object-cover object-center md:h-36 lg:h-48"
+              <CloudinaryImg
+                className="cursor-pointer object-cover object-center md:h-36 lg:h-48"
+                publicId={imgSrc}
                 width={544}
                 height={306}
+                alt={title}
+                preview={false}
               />
             </Link>
           ) : (
-            <Image
-              alt={title}
-              title={title}
-              src={imgSrc}
+            <CloudinaryImg
               className="object-cover object-center md:h-36 lg:h-48"
+              publicId={imgSrc}
               width={544}
               height={306}
+              alt={title}
+              preview={false}
             />
           ))}
         <div className="p-6">

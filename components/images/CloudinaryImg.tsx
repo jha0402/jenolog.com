@@ -65,7 +65,7 @@ const CloudinaryImg = ({
     },
   })
   const aspectRatio = aspect ? aspect.height / aspect.width : undefined
-  console.log(url)
+
   return (
     <figure
       className={clsx(className, {
