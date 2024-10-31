@@ -1,11 +1,12 @@
-type Project = {
+export type Project = {
   title: string
   description: string
   imgSrc: string
   href: string
+  featured?: boolean
 }
 
-type ProjectsData = {
+export type ProjectsData = {
   [locale: string]: Project[]
 }
 
@@ -17,6 +18,7 @@ const projectsData: ProjectsData = {
       The site is mainly built using Typescript, Next.js (App Router), and Tailwind.`,
       imgSrc: 'blog/scshot-jenolog_ekvmy2.png',
       href: 'https://jenolog.com',
+      featured: true,
     },
     {
       title: 'Joonggonara Web Service',
@@ -24,6 +26,7 @@ const projectsData: ProjectsData = {
       Tech stack used: Typescript, React, Next.js, Recoil, React Query, Tailwind CSS, AWS`,
       imgSrc: 'v1730207063/blog/joonggonara_wicoyq.png',
       href: 'https://web.joongna.com',
+      featured: true,
     },
     {
       title: 'Joonggonara App Webview',
@@ -31,6 +34,7 @@ const projectsData: ProjectsData = {
       Tech stack used: Typescript, Recoil, React Query, Emotion, AWS`,
       imgSrc: 'v1730207063/blog/joonggonara_wicoyq.png',
       href: 'https://apps.apple.com/kr/app/%EC%A4%91%EA%B3%A0%EB%82%98%EB%9D%BC-%EA%B5%AD%EB%82%B4-%EC%B5%9C%EB%8C%80-%EC%A4%91%EA%B3%A0%EB%A7%88%EC%BC%93/id896515652',
+      featured: true,
     },
     {
       title: 'Vanity Table',
@@ -38,6 +42,7 @@ const projectsData: ProjectsData = {
       Tech stack used: Javascript, Node.js, Jquery, Shopify, Liquid`,
       imgSrc: 'v1730207845/blog/vntable_uj2oua.png',
       href: 'https://vanity-table.com',
+      featured: true,
     },
     {
       title: 'Fingersuit US/JP',
@@ -62,6 +67,7 @@ const projectsData: ProjectsData = {
       Typescript, Next.js (App router), Tailwind를 주로 사용해서 사이트를 구성했습니다.`,
       imgSrc: '/blog/scshot-jenolog_ekvmy2.png',
       href: 'https://jenolog.com',
+      featured: true,
     },
     {
       title: '중고나라 웹 서비스',
@@ -69,6 +75,7 @@ const projectsData: ProjectsData = {
       사용한 기술 스택: Typescript, React, Next.js, Recoil, React Query, Tailwind CSS, AWS`,
       imgSrc: 'v1730207063/blog/joonggonara_wicoyq.png',
       href: 'https://web.joongna.com',
+      featured: true,
     },
     {
       title: '중고나라 앱 웹뷰',
@@ -76,6 +83,7 @@ const projectsData: ProjectsData = {
       사용한 기술 스택: Typescript, Recoil, React Query, Emotion, AWS`,
       imgSrc: 'v1730207063/blog/joonggonara_wicoyq.png',
       href: 'https://apps.apple.com/kr/app/%EC%A4%91%EA%B3%A0%EB%82%98%EB%9D%BC-%EA%B5%AD%EB%82%B4-%EC%B5%9C%EB%8C%80-%EC%A4%91%EA%B3%A0%EB%A7%88%EC%BC%93/id896515652',
+      featured: true,
     },
     {
       title: 'Vanity Table',
@@ -83,6 +91,7 @@ const projectsData: ProjectsData = {
       사용한 기술 스택: Javascript, Node.js, Jquery, Shopify, Liquid`,
       imgSrc: 'v1730207845/blog/vntable_uj2oua.png',
       href: 'https://vanity-table.com',
+      featured: true,
     },
     {
       title: 'Fingersuit US/JP',
