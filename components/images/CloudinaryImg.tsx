@@ -16,6 +16,7 @@ type CloudinaryImgType = {
   title?: string
   className?: string
   preview?: boolean
+  linked?: boolean
   noStyle?: boolean
   aspect?: {
     width: number
@@ -32,6 +33,7 @@ const CloudinaryImg = ({
   title,
   className,
   preview = true,
+  linked = false,
   noStyle = false,
   mdx = false,
   style,
@@ -83,7 +85,7 @@ const CloudinaryImg = ({
           position: 'relative',
           height: 0,
           paddingTop: aspectRatio ? `${aspectRatio * 100}%` : `${(+height / +width) * 100}%`,
-          cursor: preview ? 'zoom-in' : 'default',
+          cursor: (preview && 'zoom-in') || (linked && 'pointer') || 'default',
         }}
         className="img-blur"
         onClick={preview ? () => setIsOpen(true) : undefined}

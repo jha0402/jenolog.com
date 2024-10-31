@@ -5,6 +5,7 @@
   "all": "All tags",
   "moreaboutme": "More about me",
   "featured": "Featured",
+  "featuredprojects": "Featured projects",
   "morefeatured": "More featured posts",
   "morerecent": "More recent posts",
   "search": "Search articles",
@@ -23,5 +24,9 @@
   "github": "View on GitHub",
   "draft": "Under Construction",
   "noposts": "No posts found",
-  "poststagged": "View posts tagged"
+  "poststagged": "View posts tagged",
+  "read": "Read more",
+  "visit": "Visit project",
+  "linkto": "Link to",
+  "moreprojects": "See more projects"
 }
