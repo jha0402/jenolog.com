@@ -1,0 +1,99 @@
+---
+title: Monorepo and Microfrontends architecture
+series:
+  order: 1
+  title: 'Microfrontends'
+summary: An overview of what microfrontends are, when to use them, and why they are necessary.
+date: '2024-11-01'
+lastmod: '2024-11-01'
+language: en
+draft: false
+featured: true
+authors: ['Jeong Hyun An']
+tags: ['microfrontends', 'monorepo']
+---
+
+## Micro Frontends
+
+Monolithic frontends include all application functionality within a **single codebase**. This approach has the advantage of a **fast initial development speed**, **simple build and deployment configurations**, and an **easy setup** for the development environment. Since everything is built and tested together, it ensures consistency but brings challenges as the project grows. For example, even a small change can significantly affect the entire application’s **build time** and **deployment speed**. As the system becomes more complex, the **communication costs** between teams increase dramatically, and any issues in a specific feature can **impact the entire system**.
+
+Micro frontends, on the other hand, manage the application by breaking it down into **independent functional units**. Each unit is developed by a separate team and can be **built and deployed independently**. This architecture allows teams to work **autonomously** even as the project scales. Micro frontends also provide flexibility in **choosing technology stacks**, enabling teams to adopt optimal technologies based on their needs. However, this architecture increases the complexity of runtime integration and **inter-service communication**.
+
+### Monolithic Frontend vs. Microfrontends
+
+| **Feature**                   | **Monolithic Frontend** | **Micro Frontend** |
+| ----------------------------- | ----------------------- | ------------------ |
+| **Initial Development Speed** | Fast                    | Slow               |
+| **Build/Deployment Setup**    | Simple                  | Complex            |
+| **Development Environment**   | Easy                    | Complicated        |
+| **Communication Costs**       | Increases with size     | Low                |
+| **Deployment Time**           | Slow                    | Fast               |
+| **Error/Failure Impact**      | High                    | Low                |
+| **Autonomy**                  | Low                     | High               |
+
+### When is Microfrontend Needed?
+
+- To address challenges in large **monolithic frontend** architectures:
+  - **Communication costs** increase, making team collaboration difficult.
+  - Adding new features to the existing codebase may cause **unforeseen bugs**.
+  - Simple changes can prolong **the entire system’s build and deployment time**, making it inefficient.
+  - **Duplicate work** is at risk when similar features are independently developed.
+- When teams have **enough members** and require independent work:
+  - Suitable for organizations with many **frontend developers** who can work autonomously.
+  - Effective when there are cross-functional teams (design, development, QA, etc.) in place.
+- When the service can be split functionally based on **URL paths** or similar criteria.
+- When multiple micro apps need to be **selectively combined** at runtime.
+- When each micro app must independently manage **cloud resources** or infrastructure.
+
+### Advantages of Microfrontend Architecture
+
+- Reduces complexity and allows for more manageable code, improving **code quality**.
+- Smaller **testing and deployment scope** leads to shorter build times and **reduced risk**.
+- Isolates failures, preventing a single component from causing a **system-wide failure**.
+- Teams have **ownership** and **autonomy** to develop and deploy independently.
+- Facilitates **incremental improvements** and easier **technology upgrades**.
+- Allows teams to select **technology stacks** best suited for their needs.
+- Faster development cycles as different teams can work simultaneously.
+
+### Disadvantages of Microfrontends
+
+- Potential for **duplicate code**, requiring careful resource management.
+- **High initial setup costs** and a steep learning curve.
+- Increased complexity in **service integration and communication**, needing additional infrastructure.
+- Issues may arise during **runtime integration**, even if everything builds smoothly.
+- The system's overall resource usage can grow, necessitating **performance optimization**.
+- Providing a **consistent user experience (UX)** across different components can be challenging.
+- Risk of **technical disparity** among teams, making maintenance difficult.
+
+### Microfrontend Technologies / Tools
+
+- **Nginx and proxy** for page separation and **integration**.
+- **Nginx and Server-side Includes (SSI)** for server-side integration.
+- **Web components** for **runtime integration** on the client side.
+- Using **iframe** to load micro apps independently at runtime.
+- **Webpack Module Federation** for efficient **dynamic loading and sharing** of micro apps.
+
+## Monorepo
+
+- "A monorepo is a structure where multiple projects are included within a **single repository**."
+- Using a monorepo in a micro frontend architecture is not mandatory but can significantly improve **efficiency**.
+
+### Advantages / Disadvantages of Monorepo in Microfrontends
+
+- Consistent setup provides a **uniform development experience (DX)**.
+- Easy to track **the entire project history** at once.
+- Cost-effective **code reuse** and lower project creation costs.
+- **Easier dependency linking**, though it requires careful management to avoid over-dependency.
+- A single **CI/CD pipeline** can streamline the build and deployment processes, ensuring consistency.
+- Tools for monorepo can provide performance analysis and simplify **project management**.
+
+### Monorepo Technologies / Tools
+
+- **Package manager workspaces**:
+  - **npm workspaces**, **yarn workspaces**, **pnpm workspaces**.
+- **Lerna**, **Nx**, **Rush**, and **Turborepo** for efficient monorepo management:
+  - **Caching** for faster builds.
+  - **Task orchestration** for optimizing build processes.
+  - **Change detection** for efficient rebuilding.
+  - **Dependency graph visualization** for better code understanding.
+  - **Code sharing** and resource efficiency.
