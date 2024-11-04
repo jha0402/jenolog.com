@@ -15,6 +15,7 @@ import Share from '@/components/share'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { Toc } from 'pliny/mdx-plugins'
 import Sidetoc from '@/components/sidetoc'
+import CloudinaryImg from '@/components/images/CloudinaryImg'
 
 interface PostBannerProps {
   content: CoreContent<Blog>
@@ -46,8 +47,16 @@ export default function PostMinimal({
             <div className="space-y-1 pb-10 text-center dark:border-gray-700">
               <div className="w-full">
                 <Bleed>
-                  <div className="relative aspect-[2/1] w-full">
-                    <Image src={displayImage} alt={title} fill className="object-cover" />
+                  <div className="mx-auto w-11/12 max-w-[1200px]">
+                    <CloudinaryImg
+                      publicId={displayImage}
+                      alt={title}
+                      preview={false}
+                      width={1200}
+                      height={(1200 * 2) / 5}
+                      aspect={{ height: 2, width: 5 }}
+                    />
+                    {/* <Image src={displayImage} alt={title} fill className="object-cover" /> */}
                   </div>
                 </Bleed>
               </div>
@@ -61,7 +70,7 @@ export default function PostMinimal({
               </div>
             )}
             <div className="prose max-w-none py-4 dark:prose-invert">{children}</div>
-            <Share title={title} slug={slug} />
+            {/* <Share title={title} slug={slug} /> */}
             <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
               {siteMetadata.iswaline === true && <WalineComments />}
               {siteMetadata.comments && siteMetadata.iscomments === true && (

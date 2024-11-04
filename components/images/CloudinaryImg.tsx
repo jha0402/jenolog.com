@@ -2,7 +2,7 @@
 
 import { buildUrl } from 'cloudinary-build-url'
 import clsx from 'clsx'
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 import { useState } from 'react'
 import Lightbox from 'react-image-lightbox'
 
@@ -23,7 +23,8 @@ type CloudinaryImgType = {
     height: number
   }
   mdx?: boolean
-} & React.ComponentPropsWithoutRef<'figure'>
+} & React.ComponentPropsWithoutRef<'figure'> &
+  Omit<ImageProps, 'src'>
 
 const CloudinaryImg = ({
   publicId,
@@ -38,6 +39,7 @@ const CloudinaryImg = ({
   mdx = false,
   style,
   aspect,
+  fill,
   ...rest
 }: CloudinaryImgType) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -103,7 +105,14 @@ const CloudinaryImg = ({
           }
         `}</style>
         <div className="absolute left-0 top-0">
-          <Image width={width} height={height} src={url} alt={alt} title={title || alt} />
+          <Image
+            width={width}
+            height={height}
+            src={url}
+            alt={alt}
+            title={title || alt}
+            fill={fill}
+          />
         </div>
       </div>
       {isOpen && <Lightbox mainSrc={url} onCloseRequest={() => setIsOpen(false)} />}
