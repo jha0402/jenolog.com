@@ -1,0 +1,155 @@
+---
+title: 'Web Accessibility: Developing Accessible Web Services with React'
+series:
+  order: 4
+  title: 'SEO'
+summary: Web accessibility is the concept of ensuring that everyone can use the web smoothly, which plays a crucial role, especially for people with disabilities.
+date: '2024-11-05'
+lastmod: '2024-11-05'
+language: en
+draft: false
+featured: false
+authors: ['Jeong Hyun An']
+tags: ['seo', 'accessibility']
+---
+
+Web accessibility (alias: [a11y](https://en.wiktionary.org/wiki/a11y)) ensures that everyone, including people with disabilities, can use the web smoothly. Properly implementing web accessibility in React web applications can enable more users to access content while improving SEO and user experience (UX).  
+_This post references the [official React documentation](https://ko.legacy.reactjs.org/docs/accessibility.html)_.
+
+## 1. Using Semantic HTML
+
+Semantic HTML elements play a crucial role in enhancing accessibility by structurally expressing web content clearly. Screen readers analyze semantic elements to understand the page structure, allowing users to navigate web content easily.
+
+- **Use appropriate semantic tags**: Instead of using div or span unnecessarily, choose HTML elements that convey meaning.
+- Elements like header, footer, nav, main, section, article, and aside describe the page's structure clearly.
+- For instance, wrap the main content area with a `main` element, and use `nav` for navigation.
+
+**Code example:**
+
+```jsx
+<header>
+  <h1>My Website</h1>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>Welcome to Our Site</h2>
+    <p>Explore our content and enjoy a great experience.</p>
+  </section>
+</main>
+<footer>
+  <p>© 2024 My Website. All rights reserved.</p>
+</footer>
+```
+
+## 2. Using ARIA Attributes
+
+**ARIA (Accessible Rich Internet Applications)** attributes help enhance accessibility for complex user interfaces. However, ARIA attributes should only be used when they cannot be replaced by semantic HTML. Overusing ARIA attributes can lead to confusion.
+
+- **Key ARIA attribute usage**:
+  - `aria-label`: Provides a label for interactive elements like buttons or links.
+  - `aria-labelledby`: References text from another element to describe the current element.
+  - `aria-hidden`: Hides elements from screen readers while visually displaying them.
+  - `aria-live`: Notifies screen readers when content updates dynamically.
+
+**Code example:**
+
+```jsx
+<button aria-label="Close menu">X</button>
+
+<div role="alert" aria-live="assertive">
+  Your settings have been saved successfully.
+</div>
+```
+
+**Caution**: Always check if a semantic element can adequately describe content before using ARIA attributes.
+
+## 3. Ensuring Keyboard Accessibility
+
+All interactive elements on your web page or application should be accessible via keyboard. Users should be able to navigate buttons, links, and form elements using the tab key and trigger click events using the Enter or Space key.
+
+- **tabindex attribute**: Used to make elements focusable. Setting `tabindex="0"` includes the element in the natural focus order.
+- **Keyboard event handlers**: Add event handlers to enable interaction via keyboard.
+
+**Code example:**
+
+```jsx
+function AccessibleButton() {
+  const handleClick = () => {
+    alert('Button clicked!')
+  }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleClick()
+    }
+  }
+
+  return (
+    <button onClick={handleClick} onKeyDown={handleKeyDown} tabIndex="0">
+      Accessible Button
+    </button>
+  )
+}
+```
+
+**Tip**: Ensuring keyboard accessibility benefits not only screen reader users but also users who have difficulty using a mouse.
+
+## 4. Form Accessibility
+
+When using form elements, always provide labels for input fields and deliver clear error messages. Use the `htmlFor` attribute to link labels to form controls. You can also use `aria-describedby` to provide additional information to users.
+
+- **Connecting form labels**: Clearly explain what each input field represents.
+- **Validation and error messages**: Provide clear error messages to help users correct input errors.
+
+**Code example:**
+
+```jsx
+<form>
+  <label htmlFor="email">Email Address</label>
+  <input id="email" type="email" aria-describedby="emailHelp" />
+  <small id="emailHelp">We'll never share your email with anyone else.</small>
+
+  <button type="submit">Submit</button>
+</form>
+```
+
+## 5. Images and Alternative Text
+
+Images, icons, and videos must include alternative text via the `alt` attribute. If the image is decorative and doesn’t add meaningful content, use an empty `alt=""`.
+
+**Code example:**
+
+```jsx
+<img src="logo.png" alt="Company Logo" />
+
+<!-- Decorative image -->
+<img src="decorative-pattern.jpg" alt="" />
+```
+
+## 6. Color Contrast and Text Readability
+
+**[WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)** recommend ensuring a sufficient color contrast ratio between text and background. This is crucial for users with visual impairments or in low-light environments. Regular text should have a contrast ratio of at least 4.5:1, while large text should have a minimum ratio of 3:1.
+
+- **Contrast Check**: Use tools like [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) to test contrast ratios.
+- **Styling text**: Adjust text size, font style, and spacing to improve readability.
+
+## 7. Announcing Real-Time Updates
+
+When your React application updates content in real time, it’s essential to notify users immediately. The `aria-live` attribute alerts screen readers to content changes.
+
+- `aria-live`: Use `polite` for non-critical updates and `assertive` for urgent notifications.
+
+**Code example:**
+
+```jsx
+function Notification({ message }) {
+  return <div aria-live="polite">{message}</div>
+}
+```
