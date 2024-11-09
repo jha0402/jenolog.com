@@ -5,6 +5,8 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import CloudinaryImg from '../images/CloudinaryImg'
+import { FiGlobe } from 'react-icons/fi'
+import { SiGoogledocs } from 'react-icons/si'
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: -25 },
@@ -16,9 +18,10 @@ interface CardProps {
   description: string
   imgSrc?: string
   href?: string
+  blogUrl?: string
 }
 
-const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
+const Card: React.FC<CardProps> = ({ title, description, imgSrc, href, blogUrl }) => {
   const locale = useParams()?.locale as LocaleTypes
   const { t } = useTranslation(locale, 'projects')
   return (
@@ -32,7 +35,7 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
       <div
         className={`${
           imgSrc && 'h-full'
-        }  overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
+        }  flex flex-col overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
       >
         {imgSrc &&
           (href ? (
@@ -41,7 +44,7 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
               aria-label={`${t('linkto')}${title}`}
             >
               <CloudinaryImg
-                className="cursor-pointer object-cover object-center md:h-36 lg:h-48"
+                className="h-48 cursor-pointer object-cover object-center md:h-40 lg:h-40 xl:h-48"
                 publicId={imgSrc}
                 width={544}
                 height={306}
@@ -52,7 +55,7 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
             </Link>
           ) : (
             <CloudinaryImg
-              className="object-cover object-center md:h-36 lg:h-48"
+              className="h-48 object-cover object-center md:h-40 lg:h-40 xl:h-48"
               publicId={imgSrc}
               width={544}
               height={306}
@@ -60,29 +63,44 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
               preview={false}
             />
           ))}
-        <div className="p-6">
-          <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
-            {href ? (
+        <div className="flex flex-1 flex-col justify-between p-6">
+          <div>
+            <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
+              {href ? (
+                <Link
+                  href={href.startsWith('http') ? href : `/${locale}${href}`}
+                  aria-label={`${t('linkto')}${title}`}
+                >
+                  {title}
+                </Link>
+              ) : (
+                title
+              )}
+            </h2>
+            <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
+          </div>
+          <div className="flex flex-wrap justify-evenly gap-x-2">
+            {href && (
               <Link
                 href={href.startsWith('http') ? href : `/${locale}${href}`}
+                className="flex text-center text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 aria-label={`${t('linkto')}${title}`}
               >
-                {title}
+                <FiGlobe className="mr-2 mt-[3px] block" />
+                {href.startsWith('http') && `${t('visit')}`}{' '}
               </Link>
-            ) : (
-              title
             )}
-          </h2>
-          <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
-          {href && (
-            <Link
-              href={href.startsWith('http') ? href : `/${locale}${href}`}
-              className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-              aria-label={`${t('linkto')}${title}`}
-            >
-              {href.startsWith('http') ? `${t('visit')}` : `${t('read')}`} &rarr;
-            </Link>
-          )}
+            {blogUrl && (
+              <Link
+                href={blogUrl.startsWith('http') ? blogUrl : `/${locale}${blogUrl}`}
+                className="flex text-center text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                aria-label={`${t('linkto')}${title}`}
+              >
+                <SiGoogledocs className="mr-2 mt-[3px] block" />
+                {`${t('read')}`}
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </motion.div>

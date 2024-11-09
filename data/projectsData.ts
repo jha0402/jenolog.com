@@ -4,6 +4,8 @@ export type Project = {
   imgSrc: string
   href: string
   featured?: boolean
+  blogUrl?: string
+  tech?: string[]
 }
 
 export type ProjectsData = {
@@ -68,6 +70,7 @@ const projectsData: ProjectsData = {
       imgSrc: '/blog/scshot-jenolog_ekvmy2.png',
       href: 'https://jenolog.com',
       featured: true,
+      blogUrl: '/blog',
     },
     {
       title: '중고나라 웹 서비스',
