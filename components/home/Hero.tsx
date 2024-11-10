@@ -44,7 +44,7 @@ const Hero = () => {
           variants={variants}
           initial="hidden"
           animate="enter"
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.1 }}
         >
           <div className="group relative">
             <motion.div
@@ -64,7 +64,7 @@ const Hero = () => {
           variants={variants}
           initial="hidden"
           animate="enter"
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.2 }}
         >
           <UnstyledLink
             href="https://bit.ly/3RxfGKW"

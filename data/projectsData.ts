@@ -70,7 +70,6 @@ const projectsData: ProjectsData = {
       imgSrc: '/blog/scshot-jenolog_ekvmy2.png',
       href: 'https://jenolog.com',
       featured: true,
-      blogUrl: '/blog',
     },
     {
       title: '중고나라 웹 서비스',
