@@ -1,9 +1,9 @@
 {
   "greeting": "안녕하세요!",
-  "secondline": "프론트엔드 개발자",
+  "secondline": "프로덕트 엔지니어",
   "name": "안정현",
   "namesubfix": "입니다",
-  "description": "React와 Typescript로 웹 서비스를 개발하며, 이커머스 도메인에서의 경험을 바탕으로 웹과 앱(WebView) 개발, SEO 및 성능 최적화, 프론트엔드 DevOps를 담당해왔습니다.",
+  "description": "현재 이공이공에서 이커머스 웹 서비스의 기획과 개발을 담당하고 있습니다.",
   "firstbutton": "블로그",
   "secondbutton": "소개",
   "resume": "이력서",

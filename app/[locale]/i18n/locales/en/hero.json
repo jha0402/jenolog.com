@@ -2,9 +2,9 @@
   "greeting": "Hi!",
   "secondline": "You can call me",
   "name": "John",
-  "description": "I develop web services with React and TypeScript, specializing in e-commerce, WebView, SEO, performance optimization, and frontend DevOps.",
+  "description": "I plan and develop ecommerce services at EgongEgong Inc.",
   "firstbutton": "Read the blog",
-  "secondbutton": "Learn more about me",
+  "secondbutton": "Learn more",
   "resume": "Resume",
   "github": "Jeong Hyun An"
 }
